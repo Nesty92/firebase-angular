@@ -1,3 +1,5 @@
+import * as firebase from 'firebase';
+
 export class FirebaseUserModel {
   image: String;
   displayName: String;

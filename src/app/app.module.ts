@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AuthGuard } from './services/auth-guard.service';
 import { UserService } from './services/user.service';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFireFunctionsModule, FUNCTIONS_ORIGIN } from '@angular/fire/functions';
 import { LoginComponent } from './components/login/login.component';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 
 @NgModule({
   declarations: [
@@ -22,13 +22,19 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.FIREBASE_CONFIG),
     AngularFireAuthModule,
-    AngularFireFunctionsModule
+    AngularFireFunctionsModule,
+    AngularFireAuthGuardModule,
   ],
   providers: [
-    AuthGuard,
     UserService,
-    AngularFirestore
+    AngularFirestore,
+
+    // { provide: FUNCTIONS_ORIGIN, useValue: 'http://localhost:5000' }
+  ],
+  exports: [
+    LoginComponent
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
