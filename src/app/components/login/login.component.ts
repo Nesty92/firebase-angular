@@ -1,5 +1,4 @@
-import { UserService } from './../../services/user.service';
-import { AuthGuard } from './../../services/auth-guard.service';
+import { UserService } from '../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase';
