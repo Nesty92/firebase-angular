@@ -13,6 +13,7 @@ export class PostsListComponent implements OnInit {
 
   constructor(private postsService: PostsService,
               private fns: AngularFireFunctions) {
+    this.posts = new Array<Post>();
   }
 
   ngOnInit() {
